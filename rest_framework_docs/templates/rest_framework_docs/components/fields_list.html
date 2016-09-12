@@ -1,10 +1,13 @@
 <ul class="list fields">
   {% for field in fields %}
   <li class="field">
-    {{ field.name }}: {{ field.type }} 
+    {{ field.name }}: {{ field.type }}
+
     {% if field.required %}
       <span class="label label-primary label-required" title="Required">R</span>
     {% endif %}
+
+    {% if field.help_text %}<p>Help: {{ field.help_text }}</p>{% endif %}
 
     {% if field.to_many_relation %}
       <span class="label label-primary label-required" title="Support sending several objects of this type in a request ({{obj}, {obj}, ... })">Array of objects</span>
